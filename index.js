@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown");
-const { clear } = require("console");
 
 const questions = [
     {
@@ -58,11 +56,10 @@ const questions = [
       },
      
 ];
-
 function writeToFile(fileName, data)  {
     console.log("indside writefile", data);
     //here is the logic 
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    return fs.writeFileSync(path.join(process.cwd(), fileName),data);
   }
 
 function init() {
@@ -71,8 +68,50 @@ function init() {
 
     .then((data) => {
       console.log("inside init", data);
-      writeFile("READMEtest.md", generateMarkdown(data));
+      writeToFile("READMEtest.md",generateMarkdown(data));
       console.log("after writefile");
     });
+}
+function generateMarkdown(data){
+  return `
+  #${data.title}
+
+  ## License
+  
+  ![license](https://img.shields.io/static/v1?label=license&message=${data.license}&color=success)
+
+  ## Descritption
+  
+  ## Table of Contents
+  
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contribution Guidelines](#contribution-guidelines)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
+  ## Installation
+  
+  ${data.installation}
+  
+  ## Usage
+  
+  ${data.usage}
+  
+  ## Contribution Guidelines
+  
+  ${data.contribution}
+  
+  ## Tests
+  
+  ${data.tests}
+  
+  ## Questions?
+  
+  Please contact me at either of the following for any inquiries about the project.
+  * GitHub Profile: https://github.com/${data.username}
+  * Email: ${data.email}
+  `
+  
 }
 init();
