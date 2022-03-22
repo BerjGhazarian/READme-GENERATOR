@@ -65,6 +65,14 @@ function writeToFile(fileName, data)  {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
   }
 
-function init() {}
+function init() {
+    inquirer
+    .prompt(questions)
 
+    .then((data) => {
+      console.log("inside init", data);
+      writeFile("READMEtest.md", generateMarkdown(data));
+      console.log("after writefile");
+    });
+}
 init();
