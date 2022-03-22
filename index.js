@@ -46,10 +46,24 @@ const questions = [
         message: "Write the test guidelines for your project",
         name: "test",
       },
+      {
+        type: "input",
+        message: "Write your email address to be displayed for any questions",
+        name: "questions",
+      },
+      {
+        type: "input",
+        message: "What is your github username",
+        name: "github",
+      },
      
 ];
 
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data)  {
+    console.log("indside writefile", data);
+    //here is the logic 
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+  }
 
 function init() {}
 
