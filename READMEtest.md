@@ -17,11 +17,11 @@
   
   ## Installation
   
-  follow instructional installation 
+  git clone the repo, if havent done so you must install npm. to start the app run node index.js in the commad line within the terminal. this will then prompt the generated questions.
   
   ## Usage
   
-  follow instructional install 
+  follow install guidlines
   
   ## Contribution Guidelines
   
@@ -35,5 +35,5 @@
   
   Please contact me at either of the following for any inquiries about the project.
   * GitHub Profile: https://github.com/undefined
-  * Email: "mailto:
+  * Email: undefined
   
